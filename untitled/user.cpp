@@ -2,7 +2,7 @@
 
 User::User()
 {
-
+    role = 0;
 }
 
 void User::setID(int& id_)
@@ -23,6 +23,26 @@ void User::setRole(int& role_)
 int &User::getRole()
 {
     return role;
+}
+
+void User::setLogin(QString& login_)
+{
+    login = login_;
+}
+
+QString &User::getLogin()
+{
+    return login;
+}
+
+void User::setPassword(QString& password_)
+{
+    password = password_;
+}
+
+QString &User::getPassword()
+{
+    return password;
 }
 
 void User::setName(QString& name_)

@@ -11,6 +11,11 @@ public:
     int &getID();
     void setRole(int&) ;
     int &getRole();
+    void setLogin(QString&);
+    QString &getLogin();
+    void setPassword(QString&);
+    QString &getPassword();
+
     void setName(QString&);
     QString &getName();
     void setAdress(QString&);
@@ -24,6 +29,9 @@ public:
 private:
     int id;
     int role;
+    QString login;
+    QString password;
+
     QString name;
     QString adress;
     QString phone;
