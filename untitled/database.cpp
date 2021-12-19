@@ -17,16 +17,16 @@ void Database::load_users()
     int role_ = 2;
     QString login_ = "Admin";
     QString password_ = "123";
-    QString name_ = "Company";
-    QString adress_ = "";
-    QString phone_ = "";
+    //QString name_ = "Company";
+    //QString adress_ = "";
+    //QString phone_ = "";
     admin.setID(id_);
     admin.setRole(role_);
     admin.setLogin(login_);
     admin.setPassword(password_);
-    admin.setName(name_);
-    admin.setAdress(adress_);
-    admin.setPhone(phone_);
+    //admin.setName(name_);
+    //admin.setAdress(adress_);
+    //admin.setPhone(phone_);
 
     users.push_back(admin);
 }
@@ -43,8 +43,15 @@ std::vector <User> *Database::getUsers()
 bool Database::searchUser(QString& login_, QString& password_)
 {
     for (size_t i = 0; i < users.size(); i++) {
-        if (users[i].getLogin() == login_ && users[i].getPassword() == password_)
+        if (users[i].getLogin() == login_ && users[i].getPassword() == password_) {
+            cur_user = users[i];
             return true;
+        }
     }
     return false;
+}
+
+int Database::getRoleCurUser()
+{
+    return cur_user.getRole();
 }

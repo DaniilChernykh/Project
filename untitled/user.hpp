@@ -9,7 +9,7 @@ public:
     User();
     void setID(int&);
     int &getID();
-    void setRole(int&) ;
+    void setRole(int&);
     int &getRole();
     void setLogin(QString&);
     QString &getLogin();
@@ -22,6 +22,10 @@ public:
     QString &getAdress();
     void setPhone(QString&);
     QString &getPhone();
+    void setCost(size_t&);
+    size_t &getCost();
+    void setAvailable(bool&);
+    bool &getAvailable();
 
     void save(QDataStream &ost) const;
     void load(QDataStream &ist);
@@ -35,6 +39,9 @@ private:
     QString name;
     QString adress;
     QString phone;
+
+    size_t cost;
+    bool available;
 };
 
 inline QDataStream &operator<<(QDataStream &ost, const User &u)

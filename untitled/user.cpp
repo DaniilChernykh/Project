@@ -3,6 +3,7 @@
 User::User()
 {
     role = 0;
+    available = true;
 }
 
 void User::setID(int& id_)
@@ -75,16 +76,41 @@ QString &User::getPhone()
     return phone;
 }
 
+void User::setCost(size_t& cost_)
+{
+    cost = cost_;
+}
+
+size_t &User::getCost()
+{
+    return cost;
+}
+
+void User::setAvailable(bool& available_)
+{
+    available = available_;
+}
+
+bool &User::getAvailable()
+{
+    return available;
+}
+
 void User::save(QDataStream &ost) const
 {
-    ost << QString("%1").arg(id) << QString("%1").arg(role) << name << adress << phone;
+    ost << QString("%1").arg(id) << QString("%1").arg(role) << login << password <<
+           name << adress << phone << QString("%1").arg(cost) << QString("%1").arg(available);
 }
 
 void User::load(QDataStream &ist)
 {
     QString id_;
     QString role_;
-    ist >> id_ >> role_ >> name >> adress >> phone;
+    QString cost_;
+    QString available_;
+    ist >> id_ >> role_ >> login >> password >> name >> adress >> phone >> cost_ >> available_;
     id = id_.toInt();
     role = role_.toInt();
+    cost = cost_.toULongLong();
+    available = available_.toInt();
 }

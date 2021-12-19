@@ -28,9 +28,26 @@ void MainWindow::authButton()
         return;
     }
 
-    if (db.searchUser(login, password))
+    if (!db.searchUser(login, password))
     {
-        QMessageBox::warning(0, "BuyInvestments", "Поздравляю с авторизацией!");
+        QMessageBox::warning(0, "BuyInvestments", "Пользователя с введенным логином и паролем не найден.");
+        return;
+    }
+    openMainWindow(db.getRoleCurUser());
+}
+
+void openMainWindow(int role_)
+{
+    if (role_ == 0) {
+        QMessageBox::information(0, "BuyInvestments", "Ты - клиент!");
+        return;
+    }
+    else if (role_ == 1) {
+        QMessageBox::information(0, "BuyInvestments", "Ты - сотрудник!");
+        return;
+    }
+    else if (role_ == 2) {
+        QMessageBox::information(0, "BuyInvestments", "Ты - администратор!");
         return;
     }
 }

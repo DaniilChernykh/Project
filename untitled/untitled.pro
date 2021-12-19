@@ -10,16 +10,23 @@ CONFIG += c++11
 
 SOURCES += \
     database.cpp \
+    employeemainwindow.cpp \
+    investment.cpp \
     main.cpp \
     mainwindow.cpp \
+    security.cpp \
     user.cpp
 
 HEADERS += \
     database.hpp \
+    employeemainwindow.hpp \
+    investment.hpp \
     mainwindow.hpp \
+    security.hpp \
     user.hpp
 
 FORMS += \
+    employeemainwindow.ui \
     mainwindow.ui
 
 # Default rules for deployment.

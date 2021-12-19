@@ -20,6 +20,8 @@ public slots:
     void authButton();
 
 private:
+    void openMainWindow();
+
     Database db;
     std::vector <User>* users;
     Ui::MainWindow *ui;

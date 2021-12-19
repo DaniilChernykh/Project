@@ -15,6 +15,7 @@ private:
     void load_users();
 
     std::vector <User> users;
+    User cur_user;
 };
 
 #endif // DATABASE_HPP
