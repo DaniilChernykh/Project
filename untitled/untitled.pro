@@ -9,6 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    clientmainwindow.cpp \
     database.cpp \
     employeemainwindow.cpp \
     investment.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
     user.cpp
 
 HEADERS += \
+    clientmainwindow.hpp \
     database.hpp \
     employeemainwindow.hpp \
     investment.hpp \
@@ -26,6 +28,7 @@ HEADERS += \
     user.hpp
 
 FORMS += \
+    clientmainwindow.ui \
     employeemainwindow.ui \
     mainwindow.ui
 

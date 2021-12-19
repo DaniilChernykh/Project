@@ -11,6 +11,8 @@ public:
     int &getUserID();
     void setSecurityID(int&);
     int &getSecurityID();
+    void setNameBought(QString&);
+    QString &getNameBought();
     void setCount(size_t&);
     size_t &getCount();
     void setDateBuy(QDate&);
@@ -24,6 +26,7 @@ public:
 private:
     int user_id;
     int security_id;
+    QString nameBought;
     size_t count;
     QDate date_buy;
     QDate date_sell;

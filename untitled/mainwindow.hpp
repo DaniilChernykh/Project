@@ -18,9 +18,11 @@ public:
 
 public slots:
     void authButton();
+    //void regButton();
+    void exit();
 
 private:
-    void openMainWindow();
+    void openMainWindow(int);
 
     Database db;
     std::vector <User>* users;

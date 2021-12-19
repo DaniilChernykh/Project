@@ -25,6 +25,16 @@ int &Investment::getSecurityID()
     return security_id;
 }
 
+void Investment::setNameBought(QString& nameBought_)
+{
+    nameBought = nameBought_;
+}
+
+QString &Investment::getNameBought()
+{
+    return nameBought;
+}
+
 void Investment::setCount(size_t& count_)
 {
     count = count_;
@@ -58,14 +68,14 @@ QDate Investment::getDateSell()
 void Investment::save(QDataStream &ost) const
 {
     ost << QString("%1").arg(user_id) << QString("%1").arg(security_id)
-        << count << date_buy << date_sell;
+        << nameBought << count << date_buy << date_sell;
 }
 
 void Investment::load(QDataStream &ist)
 {
     QString user_id_;
     QString security_id_;
-    ist >> user_id_ >> security_id_ >> count >> date_buy >> date_sell;
+    ist >> user_id_ >> security_id_ >> nameBought >> count >> date_buy >> date_sell;
     user_id = user_id_.toInt();
     security_id = security_id_.toInt();
 }
