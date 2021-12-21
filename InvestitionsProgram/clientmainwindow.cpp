@@ -1,5 +1,8 @@
+#include <QDialog>
+#include <QDialogButtonBox>
 #include "clientmainwindow.hpp"
 #include "ui_clientmainwindow.h"
+#include "ui_add_cost.h"
 
 ClientMainWindow::ClientMainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -112,7 +115,20 @@ void ClientMainWindow::doHistoryView()
 
 void ClientMainWindow::addCost()
 {
+    QDialog *costForm = new QDialog;
+    Ui::Add_Cost add_cost;
+    add_cost.setupUi(costForm);
 
+    if (costForm->exec() != QDialog::Accepted)
+        return;
+
+    bool ok = false;
+    size_t addCost = add_cost.label->text().toULongLong(&ok);
+    if (ok)
+    {
+        user->addCost(addCost);
+    }
+    ui->costEdit->setText(QString("%1").arg(user->getCost()));
 }
 
 ClientMainWindow::~ClientMainWindow()

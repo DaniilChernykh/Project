@@ -141,5 +141,25 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>costButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ClientMainWindow</receiver>
+   <slot>addCost()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>598</x>
+     <y>378</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>328</x>
+     <y>205</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>addCost()</slot>
+ </slots>
 </ui>

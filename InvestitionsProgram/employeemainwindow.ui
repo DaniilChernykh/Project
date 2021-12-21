@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>544</width>
-    <height>404</height>
+    <width>824</width>
+    <height>403</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,22 +19,22 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>541</width>
+      <width>821</width>
       <height>361</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="3">
-      <widget class="QPushButton" name="countButton">
+     <item row="1" column="4">
+      <widget class="QPushButton" name="buyButton">
        <property name="text">
         <string>Купить</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="0" colspan="4">
+     <item row="0" column="0" colspan="5">
       <widget class="QTabWidget" name="tabWidget">
        <property name="currentIndex">
-        <number>2</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="listSecurities">
         <attribute name="title">
@@ -45,7 +45,7 @@
           <rect>
            <x>10</x>
            <y>10</y>
-           <width>511</width>
+           <width>791</width>
            <height>291</height>
           </rect>
          </property>
@@ -65,7 +65,7 @@
           <rect>
            <x>10</x>
            <y>10</y>
-           <width>511</width>
+           <width>791</width>
            <height>291</height>
           </rect>
          </property>
@@ -85,7 +85,7 @@
           <rect>
            <x>10</x>
            <y>10</y>
-           <width>511</width>
+           <width>791</width>
            <height>291</height>
           </rect>
          </property>
@@ -98,29 +98,6 @@
        </widget>
       </widget>
      </item>
-     <item row="1" column="2">
-      <widget class="QLineEdit" name="countEdit"/>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Количество:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
     </layout>
    </widget>
   </widget>
@@ -129,7 +106,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>544</width>
+     <width>824</width>
      <height>20</height>
     </rect>
    </property>
@@ -137,5 +114,25 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>buyButton</sender>
+   <signal>clicked()</signal>
+   <receiver>EmployeeMainWindow</receiver>
+   <slot>buyInvestion()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>740</x>
+     <y>369</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>411</x>
+     <y>201</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>buyInvestion()</slot>
+ </slots>
 </ui>

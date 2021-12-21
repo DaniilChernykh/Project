@@ -27,7 +27,7 @@
      <item row="4" column="0">
       <widget class="QLineEdit" name="loginEdit">
        <property name="text">
-        <string>cli</string>
+        <string>emp</string>
        </property>
       </widget>
      </item>

@@ -28,6 +28,8 @@ HEADERS += \
     user.hpp
 
 FORMS += \
+    add_cost.ui \
+    buy_investition.ui \
     clientmainwindow.ui \
     employeemainwindow.ui \
     mainwindow.ui

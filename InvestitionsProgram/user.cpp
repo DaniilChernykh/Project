@@ -81,6 +81,16 @@ void User::setCost(size_t& cost_)
     cost = cost_;
 }
 
+void User::addCost(size_t& cost_)
+{
+    cost += cost_;
+}
+
+void User::removeCost(size_t& cost_)
+{
+    cost -= cost_;
+}
+
 size_t &User::getCost()
 {
     return cost;

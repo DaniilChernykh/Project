@@ -45,6 +45,7 @@ void MainWindow::openMainWindow(int role_)
     }
     else if (role_ == 1) {
         EmployeeMainWindow *emm = new EmployeeMainWindow;
+        emm->setDB(db);
         emm->show();
         exit();
     }

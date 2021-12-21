@@ -9,13 +9,20 @@ class Database
 {
 public:
     Database();
-    std::vector <User> *getUsers();
     bool searchUser(QString& login_, QString& password_);
+    std::vector <User> *getUsers();
     User *getCurUser();
-
     std::vector <Security> &getSecurites();
     std::vector <Investment> getInvestmentUser(User);
+    std::vector <Investment> getInvestmentEmployee(User);
+    std::vector <User> getClients();
     QString getNameSecurityID(int);
+    QString getNameClientID(int);
+    void addInvestment(Investment&);
+
+    void save_users();
+    void save_security();
+    void save_investment();
 
 private:
     void load();

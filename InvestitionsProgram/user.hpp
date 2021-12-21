@@ -23,6 +23,8 @@ public:
     void setPhone(QString&);
     QString &getPhone();
     void setCost(size_t&);
+    void addCost(size_t&);
+    void removeCost(size_t&);
     size_t &getCost();
     void setAvailable(bool&);
     bool &getAvailable();
