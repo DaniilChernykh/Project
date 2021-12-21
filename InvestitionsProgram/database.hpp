@@ -14,14 +14,18 @@ public:
     User *getCurUser();
 
     std::vector <Security> &getSecurites();
+    std::vector <Investment> getInvestmentUser(User);
+    QString getNameSecurityID(int);
 
 private:
     void load();
     void load_users();
     void load_security();
+    void load_investment();
 
     std::vector <User> users;
     std::vector <Security> securites;
+    std::vector <Investment> investments;
     User cur_user;
 };
 

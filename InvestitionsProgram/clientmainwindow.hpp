@@ -18,6 +18,9 @@ public:
     void setDB(Database&);
     ~ClientMainWindow();
 
+public slots:
+    void addCost();
+
 private:
     Ui::ClientMainWindow *ui;
 
@@ -27,10 +30,11 @@ private:
 
     void doTablesView();
     void doSecuritesView();
-    //void doMySecuritesView();
-    //void doHistoryView();
+    void doMySecuritesView();
+    void doHistoryView();
 
     Database db;
+    std::vector<Investment> investments;
     User *user;
 };
 
