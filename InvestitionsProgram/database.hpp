@@ -24,6 +24,7 @@ public:
     size_t getSizeClients();
     size_t getSizeSecurities();
     void refreshDataSecurity(Security&);
+    void refreshDataUser(User&);
 
     void save_users();
     void save_security();

@@ -15,6 +15,7 @@ class Edit_User : public QDialog
 public:
     explicit Edit_User(QWidget *parent = nullptr);
     void setUser(User*);
+    void setCurrentValues();
     ~Edit_User();
 
 public slots:

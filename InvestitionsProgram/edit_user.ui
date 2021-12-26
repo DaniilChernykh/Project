@@ -81,44 +81,6 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="loginEdit">
-      <property name="maxLength">
-       <number>15</number>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="passEdit">
-      <property name="maxLength">
-       <number>24</number>
-      </property>
-      <property name="echoMode">
-       <enum>QLineEdit::Password</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="1">
-     <widget class="QLineEdit" name="nameEdit">
-      <property name="maxLength">
-       <number>31</number>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="1">
-     <widget class="QLineEdit" name="phoneEdit">
-      <property name="maxLength">
-       <number>16</number>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="1">
-     <widget class="QLineEdit" name="adressEdit">
-      <property name="maxLength">
-       <number>31</number>
-      </property>
-     </widget>
-    </item>
     <item row="2" column="0">
      <widget class="QLabel" name="label_6">
       <property name="text">
@@ -126,15 +88,23 @@
       </property>
      </widget>
     </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="loginEdit"/>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="passEdit"/>
+    </item>
     <item row="2" column="1">
-     <widget class="QLineEdit" name="try_passEdit">
-      <property name="maxLength">
-       <number>24</number>
-      </property>
-      <property name="echoMode">
-       <enum>QLineEdit::Password</enum>
-      </property>
-     </widget>
+     <widget class="QLineEdit" name="try_passEdit"/>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="nameEdit"/>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLineEdit" name="phoneEdit"/>
+    </item>
+    <item row="6" column="1">
+     <widget class="QLineEdit" name="adressEdit"/>
     </item>
    </layout>
   </widget>

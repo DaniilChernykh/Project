@@ -277,6 +277,19 @@ std::vector <Investment> Database::getInvestmentEmployee(User user_)
     return m_inv;
 }
 
+void Database::refreshDataUser(User& user_)
+{
+    for (size_t i = 0; i < securites.size(); i++)
+    {
+        if (users[i].getID() == user_.getID())
+        {
+            users[i] = user_;
+            break;
+        }
+    }
+    save_security();
+}
+
 void Database::refreshDataSecurity(Security& sec_)
 {
     for (size_t i = 0; i < securites.size(); i++)

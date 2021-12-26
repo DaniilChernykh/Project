@@ -15,8 +15,10 @@ class AdminMainWindow : public QMainWindow
 public:
     explicit AdminMainWindow(QWidget *parent = nullptr);
     void setDB(Database&);
-    void manageUsers();
     ~AdminMainWindow();
+
+public slots:
+    void manageUsers();
 
 private:
     Ui::AdminMainWindow *ui;

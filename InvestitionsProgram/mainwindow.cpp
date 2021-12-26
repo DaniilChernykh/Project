@@ -3,6 +3,7 @@
 #include "mainwindow.hpp"
 #include "clientmainwindow.hpp"
 #include "employeemainwindow.hpp"
+#include "adminmainwindow.hpp"
 #include "edit_user.hpp"
 #include "ui_mainwindow.h"
 
@@ -66,8 +67,10 @@ void MainWindow::openMainWindow(int role_)
         exit();
     }
     else if (role_ == 2) {
-        QMessageBox::information(0, "BuyInvestments", "Ты - администратор!");
-        return;
+        AdminMainWindow *amm = new AdminMainWindow;
+        amm->setDB(db);
+        amm->show();
+        exit();
     }
 }
 

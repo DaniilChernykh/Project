@@ -16,6 +16,7 @@ SOURCES += \
     edit_user.cpp \
     employeemainwindow.cpp \
     investment.cpp \
+    list_users.cpp \
     main.cpp \
     mainwindow.cpp \
     security.cpp \
@@ -29,6 +30,7 @@ HEADERS += \
     edit_user.hpp \
     employeemainwindow.hpp \
     investment.hpp \
+    list_users.hpp \
     mainwindow.hpp \
     security.hpp \
     user.hpp
@@ -41,6 +43,7 @@ FORMS += \
     edit_securities.ui \
     edit_user.ui \
     employeemainwindow.ui \
+    list_users.ui \
     mainwindow.ui
 
 # Default rules for deployment.

@@ -14,6 +14,14 @@ void Edit_User::setUser(User* user_)
     user = user_;
 }
 
+void Edit_User::setCurrentValues()
+{
+    ui->loginEdit->setText(user->getLogin());
+    ui->nameEdit->setText(user->getName());
+    ui->adressEdit->setText(user->getAdress());
+    ui->phoneEdit->setText(user->getPhone());
+}
+
 void Edit_User::accept()
 {
     QString login = ui->loginEdit->text();
