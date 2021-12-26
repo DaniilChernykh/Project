@@ -19,6 +19,11 @@ public:
     QString getNameSecurityID(int);
     QString getNameClientID(int);
     void addInvestment(Investment&);
+    void addUser(User&);
+    void addSecurity(Security&);
+    size_t getSizeClients();
+    size_t getSizeSecurities();
+    void refreshDataSecurity(Security&);
 
     void save_users();
     void save_security();

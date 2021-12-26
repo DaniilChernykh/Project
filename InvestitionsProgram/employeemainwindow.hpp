@@ -20,6 +20,12 @@ public:
 
 public slots:
     void buyInvestion();
+    void addSecurities();
+    void editSecurities();
+
+private slots:
+    void on_securitesView_clicked(const QModelIndex &index);
+    void on_tabWidget_currentChanged(int index);
 
 private:
     void doTablesView();

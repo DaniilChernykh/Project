@@ -6,7 +6,7 @@ User::User()
     available = true;
 }
 
-void User::setID(int& id_)
+void User::setID(int id_)
 {
     id = id_;
 }
@@ -16,7 +16,7 @@ int &User::getID()
     return id;
 }
 
-void User::setRole(int& role_)
+void User::setRole(int role_)
 {
     role = role_;
 }
@@ -76,17 +76,17 @@ QString &User::getPhone()
     return phone;
 }
 
-void User::setCost(size_t& cost_)
+void User::setCost(size_t cost_)
 {
     cost = cost_;
 }
 
-void User::addCost(size_t& cost_)
+void User::addCost(size_t cost_)
 {
     cost += cost_;
 }
 
-void User::removeCost(size_t& cost_)
+void User::removeCost(size_t cost_)
 {
     cost -= cost_;
 }
@@ -96,7 +96,7 @@ size_t &User::getCost()
     return cost;
 }
 
-void User::setAvailable(bool& available_)
+void User::setAvailable(bool available_)
 {
     available = available_;
 }

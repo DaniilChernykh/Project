@@ -46,6 +46,22 @@ void Database::addInvestment(Investment& investment_)
     out << investment_;
 }
 
+void Database::addUser(User& user_)
+{
+    QFile outf("users.tnb");
+    outf.open(QIODevice::Append);
+    QDataStream out(&outf);
+    out << user_;
+}
+
+void Database::addSecurity(Security& sec_)
+{
+    QFile outf("securites.tnb");
+    outf.open(QIODevice::Append);
+    QDataStream out(&outf);
+    out << sec_;
+}
+
 void Database::load()
 {
     load_users();
@@ -261,6 +277,19 @@ std::vector <Investment> Database::getInvestmentEmployee(User user_)
     return m_inv;
 }
 
+void Database::refreshDataSecurity(Security& sec_)
+{
+    for (size_t i = 0; i < securites.size(); i++)
+    {
+        if (securites[i].getID() == sec_.getID())
+        {
+            securites[i] = sec_;
+            break;
+        }
+    }
+    save_security();
+}
+
 QString Database::getNameClientID(int ID_client)
 {
     QString res = "Не найдено.";
@@ -285,6 +314,20 @@ std::vector <User> Database::getClients()
         }
     }
     return res;
+}
+
+size_t Database::getSizeClients()
+{
+    size_t res = 0;
+    for (size_t i = 0; i < users.size(); ++i)
+        if (users[i].getRole() == 0)
+            res++;
+    return res;
+}
+
+size_t Database::getSizeSecurities()
+{
+    return securites.size();
 }
 
 QString Database::getNameSecurityID(int ID)

@@ -3,6 +3,7 @@
 #include "mainwindow.hpp"
 #include "clientmainwindow.hpp"
 #include "employeemainwindow.hpp"
+#include "edit_user.hpp"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -12,6 +13,21 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     users = db.getUsers();
+}
+
+void MainWindow::regButton()
+{
+    User user;
+    Edit_User regUser;
+    regUser.setUser(&user);
+    if (regUser.exec() != Edit_User::Accepted)
+        return;
+    user.setAvailable(true);
+    user.setRole(0);
+    user.setID(1000 + db.getSizeClients());
+    user.setCost(0);
+    db.addUser(user);
+    users->push_back(user);
 }
 
 void MainWindow::authButton()

@@ -26,6 +26,9 @@
     <layout class="QGridLayout" name="gridLayout">
      <item row="1" column="4">
       <widget class="QPushButton" name="buyButton">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="text">
         <string>Купить</string>
        </property>
@@ -98,6 +101,20 @@
        </widget>
       </widget>
      </item>
+     <item row="1" column="3">
+      <widget class="QPushButton" name="editButton">
+       <property name="text">
+        <string>Изменить</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QPushButton" name="addButton">
+       <property name="text">
+        <string>Добавить</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
   </widget>
@@ -131,8 +148,42 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>addButton</sender>
+   <signal>clicked()</signal>
+   <receiver>EmployeeMainWindow</receiver>
+   <slot>addSecurities()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>410</x>
+     <y>369</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>411</x>
+     <y>201</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>editButton</sender>
+   <signal>clicked()</signal>
+   <receiver>EmployeeMainWindow</receiver>
+   <slot>editSecurities()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>575</x>
+     <y>369</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>411</x>
+     <y>201</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>buyInvestion()</slot>
+  <slot>addSecurities()</slot>
+  <slot>editSecurities()</slot>
  </slots>
 </ui>

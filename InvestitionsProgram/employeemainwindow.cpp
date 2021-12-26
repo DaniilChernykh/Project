@@ -3,6 +3,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QMessageBox>
+#include "edit_securities.hpp"
 #include "employeemainwindow.hpp"
 #include "ui_employeemainwindow.h"
 #include "ui_buy_investition.h"
@@ -117,6 +118,40 @@ void EmployeeMainWindow::doHistoryView()
     }
 }
 
+void EmployeeMainWindow::addSecurities()
+{
+    Security s;
+    Edit_Securities es;
+    es.setSecurity(&s);
+    if (es.exec() != Edit_Securities::Accepted)
+        return;
+    s.setCostOld(0);
+    s.setID(101 + db.getSizeSecurities());
+    db.addSecurity(s);
+    securites.push_back(s);
+    doTablesView();
+}
+
+void EmployeeMainWindow::editSecurities()
+{
+    if (!ui->securitesView->selectionModel()->hasSelection()) {
+        return;
+    }
+
+    QModelIndexList selection = ui->securitesView->selectionModel()->selectedRows();
+    int index_security = selection.at(0).row();
+
+    Security s = securites[index_security];
+    Edit_Securities es;
+    es.setSecurity(&s);
+    es.setCurrentValues();
+    if (es.exec() != Edit_Securities::Accepted)
+        return;
+    db.refreshDataSecurity(s);
+    securites = db.getSecurites();
+    doTablesView();
+}
+
 void EmployeeMainWindow::buyInvestion()
 {
     if (!ui->securitesView->selectionModel()->hasSelection()) {
@@ -136,15 +171,15 @@ void EmployeeMainWindow::buyInvestion()
     int index_client = buy_investition.comboBox->currentIndex();
 
     QModelIndexList selection = ui->securitesView->selectionModel()->selectedRows();
-    QModelIndex index = selection.at(0);
-    int index_security = index.row();
+    int index_security = selection.at(0).row();
 
     bool ok = false;
     size_t count_securite = buy_investition.lineEdit->text().toULongLong(&ok);
     if (!ok) { return; }
 
     if (clients[index_client].getCost() < securites[index_security].getCostNew() * count_securite) {
-        QMessageBox::warning(0, "Investitions Program", "У пользователя недостаточно средств.");
+        QMessageBox::warning(0, "InvestitionsProgram", "У пользователя недостаточно средств.");
+        return;
     }
     size_t rem_cost = securites[index_security].getCostNew() * count_securite;
     clients[index_client].removeCost(rem_cost);
@@ -153,8 +188,7 @@ void EmployeeMainWindow::buyInvestion()
     inv.setSecurityID(securites[index_security].getID());
     inv.setCount(count_securite);
     inv.setNameBought(user->getName());
-    QDate tmp = QDate::currentDate();
-    inv.setDateBuy(tmp);
+    inv.setDateBuy(QDate::currentDate());
     inv.setUserID(clients[index_client].getID());
     investments.push_back(inv);
     db.addInvestment(inv);
@@ -166,3 +200,30 @@ EmployeeMainWindow::~EmployeeMainWindow()
 {
     delete ui;
 }
+
+
+void EmployeeMainWindow::on_securitesView_clicked(const QModelIndex&)
+{
+    ui->buyButton->setEnabled(true);
+    ui->editButton->setEnabled(true);
+}
+
+void EmployeeMainWindow::on_tabWidget_currentChanged(int)
+{
+    if (ui->tabWidget->currentIndex() != 0)
+    {
+        ui->editButton->setEnabled(false);
+        ui->buyButton->setEnabled(false);
+        ui->addButton->setEnabled(false);
+    }
+    if (ui->tabWidget->currentIndex() == 0 && ui->securitesView->selectionModel()->hasSelection())
+    {
+        ui->editButton->setEnabled(true);
+        ui->buyButton->setEnabled(true);
+    }
+    else if (ui->tabWidget->currentIndex() == 0)
+    {
+        ui->addButton->setEnabled(true);
+    }
+}
+

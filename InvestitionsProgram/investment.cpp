@@ -5,7 +5,7 @@ Investment::Investment()
 
 }
 
-void Investment::setUserID(int& user_id_)
+void Investment::setUserID(int user_id_)
 {
     user_id = user_id_;
 }
@@ -15,7 +15,7 @@ int &Investment::getUserID()
     return user_id;
 }
 
-void Investment::setSecurityID(int& security_id_)
+void Investment::setSecurityID(int security_id_)
 {
     security_id = security_id_;
 }
@@ -35,7 +35,7 @@ QString &Investment::getNameBought()
     return nameBought;
 }
 
-void Investment::setCount(size_t& count_)
+void Investment::setCount(size_t count_)
 {
     count = count_;
 }
@@ -45,7 +45,7 @@ size_t &Investment::getCount()
     return count;
 }
 
-void Investment::setDateBuy(QDate& date_buy_)
+void Investment::setDateBuy(QDate date_buy_)
 {
     date_buy = date_buy_;
 }
@@ -55,7 +55,7 @@ QDate Investment::getDateBuy()
     return date_buy;
 }
 
-void Investment::setDateSell(QDate& date_sell_)
+void Investment::setDateSell(QDate date_sell_)
 {
     date_sell = date_sell_;
 }

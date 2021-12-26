@@ -7,15 +7,15 @@ class Security
 {
 public:
     Security();
-    void setID(int&);
+    void setID(int);
     int &getID();
     void setName(QString&);
     QString &getName();
-    void setCostOld(size_t&);
+    void setCostOld(size_t);
     size_t &getCostOld();
-    void setCostNew(size_t&);
+    void setCostNew(size_t);
     size_t &getCostNew();
-    void setAvailable(bool&);
+    void setAvailable(bool);
     bool &getAvailable();
 
     void save(QDataStream &ost) const;

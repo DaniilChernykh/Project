@@ -5,7 +5,7 @@ Security::Security()
 
 }
 
-void Security::setID(int& id_)
+void Security::setID(int id_)
 {
     id = id_;
 }
@@ -25,7 +25,7 @@ QString &Security::getName()
     return name;
 }
 
-void Security::setCostOld(size_t& cost_old_)
+void Security::setCostOld(size_t cost_old_)
 {
     cost_old = cost_old_;
 }
@@ -36,7 +36,7 @@ size_t &Security::getCostOld()
 }
 
 
-void Security::setCostNew(size_t& cost_new_)
+void Security::setCostNew(size_t cost_new_)
 {
     cost_new = cost_new_;
 }
@@ -46,7 +46,7 @@ size_t &Security::getCostNew()
     return cost_new;
 }
 
-void Security::setAvailable(bool& available_)
+void Security::setAvailable(bool available_)
 {
     available = available_;
 }

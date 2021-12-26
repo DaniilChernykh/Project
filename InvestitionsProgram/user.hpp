@@ -7,9 +7,9 @@ class User
 {
 public:
     User();
-    void setID(int&);
+    void setID(int);
     int &getID();
-    void setRole(int&);
+    void setRole(int);
     int &getRole();
     void setLogin(QString&);
     QString &getLogin();
@@ -22,11 +22,11 @@ public:
     QString &getAdress();
     void setPhone(QString&);
     QString &getPhone();
-    void setCost(size_t&);
-    void addCost(size_t&);
-    void removeCost(size_t&);
+    void setCost(size_t);
+    void addCost(size_t);
+    void removeCost(size_t);
     size_t &getCost();
-    void setAvailable(bool&);
+    void setAvailable(bool);
     bool &getAvailable();
 
     void save(QDataStream &ost) const;

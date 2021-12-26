@@ -7,17 +7,17 @@ class Investment
 {
 public:
     Investment();
-    void setUserID(int&);
+    void setUserID(int);
     int &getUserID();
-    void setSecurityID(int&);
+    void setSecurityID(int);
     int &getSecurityID();
     void setNameBought(QString&);
     QString &getNameBought();
-    void setCount(size_t&);
+    void setCount(size_t);
     size_t &getCount();
-    void setDateBuy(QDate&);
+    void setDateBuy(QDate);
     QDate getDateBuy();
-    void setDateSell(QDate&);
+    void setDateSell(QDate);
     QDate getDateSell();
 
     void save(QDataStream &ost) const;

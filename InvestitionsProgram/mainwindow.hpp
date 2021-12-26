@@ -18,7 +18,7 @@ public:
 
 public slots:
     void authButton();
-    //void regButton();
+    void regButton();
     void exit();
 
 private:

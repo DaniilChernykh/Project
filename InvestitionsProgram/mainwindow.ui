@@ -133,7 +133,7 @@
       </spacer>
      </item>
      <item row="9" column="0">
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="regButton">
        <property name="text">
         <string>Регистрация</string>
        </property>
@@ -172,8 +172,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>regButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>regButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>175</x>
+     <y>226</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>178</x>
+     <y>134</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>authButton()</slot>
+  <slot>regButton()</slot>
  </slots>
 </ui>
