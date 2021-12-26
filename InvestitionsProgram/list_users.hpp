@@ -24,7 +24,6 @@ public slots:
 
 private:
     void build_combobox();
-
     Ui::List_Users *ui;
     std::vector<User>* users;
 };

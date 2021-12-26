@@ -24,17 +24,7 @@
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="4">
-      <widget class="QPushButton" name="buyButton">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="text">
-        <string>Купить</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0" colspan="5">
+     <item row="0" column="0" colspan="6">
       <widget class="QTabWidget" name="tabWidget">
        <property name="currentIndex">
         <number>0</number>
@@ -101,6 +91,13 @@
        </widget>
       </widget>
      </item>
+     <item row="1" column="2">
+      <widget class="QPushButton" name="addButton">
+       <property name="text">
+        <string>Добавить</string>
+       </property>
+      </widget>
+     </item>
      <item row="1" column="3">
       <widget class="QPushButton" name="editButton">
        <property name="text">
@@ -108,10 +105,20 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="2">
-      <widget class="QPushButton" name="addButton">
+     <item row="1" column="4">
+      <widget class="QPushButton" name="buyButton">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
        <property name="text">
-        <string>Добавить</string>
+        <string>Купить</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="5">
+      <widget class="QPushButton" name="sellButton">
+       <property name="text">
+        <string>Продать</string>
        </property>
       </widget>
      </item>
@@ -180,10 +187,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>sellButton</sender>
+   <signal>clicked()</signal>
+   <receiver>EmployeeMainWindow</receiver>
+   <slot>sellInvestion()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>754</x>
+     <y>369</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>411</x>
+     <y>201</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>buyInvestion()</slot>
   <slot>addSecurities()</slot>
   <slot>editSecurities()</slot>
+  <slot>sellInvestion()</slot>
  </slots>
 </ui>

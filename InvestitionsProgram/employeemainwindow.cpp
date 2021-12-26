@@ -7,6 +7,7 @@
 #include "employeemainwindow.hpp"
 #include "ui_employeemainwindow.h"
 #include "ui_buy_investition.h"
+#include "sell_investition.hpp"
 
 EmployeeMainWindow::EmployeeMainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -196,16 +197,29 @@ void EmployeeMainWindow::buyInvestion()
     doTablesView();
 }
 
+void EmployeeMainWindow::sellInvestion()
+{
+    Sell_Investition si;
+    si.setDB(&db);
+    if (si.exec() != Sell_Investition::Accepted)
+        return;
+    db.save_users();
+    db.save_investment();
+    securites = db.getSecurites();
+    clients = db.getClients();
+    doTablesView();
+}
+
 EmployeeMainWindow::~EmployeeMainWindow()
 {
     delete ui;
 }
 
-
 void EmployeeMainWindow::on_securitesView_clicked(const QModelIndex&)
 {
     ui->buyButton->setEnabled(true);
     ui->editButton->setEnabled(true);
+    ui->addButton->setEnabled(true);
 }
 
 void EmployeeMainWindow::on_tabWidget_currentChanged(int)

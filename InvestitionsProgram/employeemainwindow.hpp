@@ -20,6 +20,7 @@ public:
 
 public slots:
     void buyInvestion();
+    void sellInvestion();
     void addSecurities();
     void editSecurities();
 
@@ -45,9 +46,6 @@ private:
     QStandardItemModel *tab1;
     QStandardItemModel *tab2;
     QStandardItemModel *tab3;
-
-
-
 };
 
 #endif // EMPLOYEEMAINWINDOW_HPP

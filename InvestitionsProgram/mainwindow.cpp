@@ -14,6 +14,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     users = db.getUsers();
+    if (users->size() == 1)
+    {
+        QMessageBox::information(this,  "BuyInvestments", "Добро пожаловать в программу \"BuyInvestments\"."
+                                        "\nТак как это первый запуск, заранее был создан пользователь с логином и паролем"
+                                        "admin. Воспользуйтесь им для продолжения пользования программы.");
+    }
 }
 
 void MainWindow::regButton()

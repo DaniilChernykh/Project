@@ -20,6 +20,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     security.cpp \
+    sell_investition.cpp \
     user.cpp
 
 HEADERS += \
@@ -33,6 +34,7 @@ HEADERS += \
     list_users.hpp \
     mainwindow.hpp \
     security.hpp \
+    sell_investition.hpp \
     user.hpp
 
 FORMS += \
@@ -43,8 +45,10 @@ FORMS += \
     edit_securities.ui \
     edit_user.ui \
     employeemainwindow.ui \
+    list_investition.ui \
     list_users.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    sell_investition.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

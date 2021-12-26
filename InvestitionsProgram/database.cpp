@@ -44,6 +44,23 @@ void Database::addInvestment(Investment& investment_)
     outf.open(QIODevice::Append);
     QDataStream out(&outf);
     out << investment_;
+    addOperationWithInvestition(investment_);
+}
+
+void Database::addOperationWithInvestition(Investment& investment_)
+{
+    QFile outf("investment.log");
+    outf.open(QIODevice::Append);
+    QTextStream out(&outf);
+    QString output = "";
+    output += QString("Сотрудник %1 ").arg(investment_.getNameBought());
+    if (investment_.getDateSell().isNull())
+        output += QString("купил ");
+    else
+        output += QString("продал ");
+    output += QString("акцию с ID %1 количеством %2 штук клиенту с ID %3").arg(investment_.getSecurityID())
+            .arg(investment_.getCount()).arg(investment_.getUserID());
+    out << output;
 }
 
 void Database::addUser(User& user_)
@@ -80,6 +97,16 @@ void Database::load_users()
         User u;
         ist >> u;
         users.push_back(u);
+    }
+
+    if (users.size() == 0)
+    {
+        User u;
+        QString login = "admin";
+        u.setLogin(login);
+        u.setPassword(login);
+        u.setRole(2);
+        u.setID(101);
     }
 
 //    User admin;
@@ -303,6 +330,19 @@ void Database::refreshDataSecurity(Security& sec_)
     save_security();
 }
 
+void Database::refreshDataInvestments(Investment & inv_)
+{
+    for (size_t i = 0; i < investments.size(); i++)
+    {
+        if (investments[i].getUserID() == inv_.getUserID() && investments[i].getSecurityID() == inv_.getSecurityID())
+        {
+            investments[i] = inv_;
+            break;
+        }
+    }
+    save_investment();
+}
+
 QString Database::getNameClientID(int ID_client)
 {
     QString res = "Не найдено.";
@@ -327,6 +367,26 @@ std::vector <User> Database::getClients()
         }
     }
     return res;
+}
+
+User Database::getClientID(int id_)
+{
+    for (size_t i = 0; i < users.size(); i++)
+    {
+        if (users[i].getID() == id_)
+            return users[i];
+    }
+    return users[0];
+}
+
+Security Database::getSecurityID(int id_)
+{
+    for (size_t i = 0; i < securites.size(); i++)
+    {
+        if (securites[i].getID() == id_)
+            return securites[i];
+    }
+    return securites[0];
 }
 
 size_t Database::getSizeClients()

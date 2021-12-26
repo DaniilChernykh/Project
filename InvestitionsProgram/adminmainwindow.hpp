@@ -19,6 +19,7 @@ public:
 
 public slots:
     void manageUsers();
+    void historyChangedSecurities();
 
 private:
     Ui::AdminMainWindow *ui;

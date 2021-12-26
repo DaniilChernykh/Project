@@ -1,3 +1,4 @@
+#include <QMessageBox>
 #include "list_users.hpp"
 #include "edit_user.hpp"
 #include "ui_list_users.h"
@@ -48,6 +49,7 @@ void List_Users::accept()
     User user = users->at(ui->comboBox->currentIndex());
     user.setRole(ui->comboBox_2->currentIndex());
     user.setAvailable(ui->checkBox->isChecked());
+    return QDialog::accept();
 }
 
 List_Users::~List_Users()

@@ -16,6 +16,8 @@ public:
     std::vector <Investment> getInvestmentUser(User);
     std::vector <Investment> getInvestmentEmployee(User);
     std::vector <User> getClients();
+    User getClientID(int);
+    Security getSecurityID(int);
     QString getNameSecurityID(int);
     QString getNameClientID(int);
     void addInvestment(Investment&);
@@ -25,6 +27,7 @@ public:
     size_t getSizeSecurities();
     void refreshDataSecurity(Security&);
     void refreshDataUser(User&);
+    void refreshDataInvestments(Investment&);
 
     void save_users();
     void save_security();
@@ -35,6 +38,8 @@ private:
     void load_users();
     void load_security();
     void load_investment();
+
+    void addOperationWithInvestition(Investment&);
 
     std::vector <User> users;
     std::vector <Security> securites;
