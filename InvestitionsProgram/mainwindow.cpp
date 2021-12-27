@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     {
         QMessageBox::information(this,  "BuyInvestments", "Добро пожаловать в программу \"BuyInvestments\"."
                                         "\nТак как это первый запуск, заранее был создан пользователь с логином и паролем"
-                                        "admin. Воспользуйтесь им для продолжения пользования программы.");
+                                        " \'admin\'. Воспользуйтесь им для продолжения пользования программы.");
     }
 }
 
@@ -31,7 +31,7 @@ void MainWindow::regButton()
         return;
     user.setAvailable(true);
     user.setRole(0);
-    user.setID(1000 + db.getSizeClients());
+    user.setID(1001 + db.getSizeUsers());
     user.setCost(0);
     db.addUser(user);
     users->push_back(user);

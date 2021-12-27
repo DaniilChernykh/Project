@@ -40,7 +40,7 @@ void Database::save_investment()
 
 void Database::addInvestment(Investment& investment_)
 {
-    QFile outf("investment.tnb");
+    QFile outf("investments.tnb");
     outf.open(QIODevice::Append);
     QDataStream out(&outf);
     out << investment_;
@@ -49,7 +49,7 @@ void Database::addInvestment(Investment& investment_)
 
 void Database::addOperationWithInvestition(Investment& investment_)
 {
-    QFile outf("investment.log");
+    QFile outf("investments.log");
     outf.open(QIODevice::Append);
     QTextStream out(&outf);
     QString output = "";
@@ -58,7 +58,7 @@ void Database::addOperationWithInvestition(Investment& investment_)
         output += QString("купил ");
     else
         output += QString("продал ");
-    output += QString("акцию с ID %1 количеством %2 штук клиенту с ID %3").arg(investment_.getSecurityID())
+    output += QString("акцию с ID %1 количеством %2 штук клиенту с ID %3\n").arg(investment_.getSecurityID())
             .arg(investment_.getCount()).arg(investment_.getUserID());
     out << output;
 }
@@ -77,6 +77,7 @@ void Database::addSecurity(Security& sec_)
     outf.open(QIODevice::Append);
     QDataStream out(&outf);
     out << sec_;
+    securites.push_back(sec_);
 }
 
 void Database::load()
@@ -103,10 +104,14 @@ void Database::load_users()
     {
         User u;
         QString login = "admin";
+        QString name = "Администратор";
         u.setLogin(login);
         u.setPassword(login);
         u.setRole(2);
         u.setID(101);
+        u.setName(name);
+        users.push_back(u);
+        addUser(u);
     }
 
 //    User admin;
@@ -306,7 +311,7 @@ std::vector <Investment> Database::getInvestmentEmployee(User user_)
 
 void Database::refreshDataUser(User& user_)
 {
-    for (size_t i = 0; i < securites.size(); i++)
+    for (size_t i = 0; i < users.size(); i++)
     {
         if (users[i].getID() == user_.getID())
         {
@@ -314,7 +319,7 @@ void Database::refreshDataUser(User& user_)
             break;
         }
     }
-    save_security();
+    save_users();
 }
 
 void Database::refreshDataSecurity(Security& sec_)
@@ -334,7 +339,8 @@ void Database::refreshDataInvestments(Investment & inv_)
 {
     for (size_t i = 0; i < investments.size(); i++)
     {
-        if (investments[i].getUserID() == inv_.getUserID() && investments[i].getSecurityID() == inv_.getSecurityID())
+        if (investments[i].getUserID() == inv_.getUserID() &&
+            investments[i].getSecurityID() == inv_.getSecurityID())
         {
             investments[i] = inv_;
             break;
@@ -389,11 +395,10 @@ Security Database::getSecurityID(int id_)
     return securites[0];
 }
 
-size_t Database::getSizeClients()
+size_t Database::getSizeUsers()
 {
     size_t res = 0;
     for (size_t i = 0; i < users.size(); ++i)
-        if (users[i].getRole() == 0)
             res++;
     return res;
 }

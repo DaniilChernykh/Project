@@ -49,6 +49,7 @@ void List_Users::accept()
     User user = users->at(ui->comboBox->currentIndex());
     user.setRole(ui->comboBox_2->currentIndex());
     user.setAvailable(ui->checkBox->isChecked());
+    users->at(ui->comboBox->currentIndex()) = user;
     return QDialog::accept();
 }
 

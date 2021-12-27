@@ -23,7 +23,7 @@ public:
     void addInvestment(Investment&);
     void addUser(User&);
     void addSecurity(Security&);
-    size_t getSizeClients();
+    size_t getSizeUsers();
     size_t getSizeSecurities();
     void refreshDataSecurity(Security&);
     void refreshDataUser(User&);
@@ -33,11 +33,12 @@ public:
     void save_security();
     void save_investment();
 
+    void load_investment();
+
 private:
     void load();
     void load_users();
     void load_security();
-    void load_investment();
 
     void addOperationWithInvestition(Investment&);
 

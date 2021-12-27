@@ -123,12 +123,15 @@ void ClientMainWindow::addCost()
         return;
 
     bool ok = false;
-    size_t addCost = add_cost.label->text().toULongLong(&ok);
-    if (ok)
+    size_t addCost = add_cost.costEdit->text().toULongLong(&ok);
+    if (!ok)
     {
-        user->addCost(addCost);
+        return;
     }
+    user->addCost(addCost);
+    db.refreshDataUser(*user);
     ui->costEdit->setText(QString("%1").arg(user->getCost()));
+
 }
 
 ClientMainWindow::~ClientMainWindow()

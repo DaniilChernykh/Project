@@ -140,7 +140,13 @@ void EmployeeMainWindow::editSecurities()
     }
 
     QModelIndexList selection = ui->securitesView->selectionModel()->selectedRows();
-    int index_security = selection.at(0).row();
+    size_t index_security_in_table = selection.at(0).row();
+
+    size_t index_security = index_security_in_table;
+
+    for (size_t i = 0; i <= index_security_in_table; i++)
+        if (!securites[i].getAvailable())
+            index_security++;
 
     Security s = securites[index_security];
     Edit_Securities es;
@@ -201,6 +207,7 @@ void EmployeeMainWindow::sellInvestion()
 {
     Sell_Investition si;
     si.setDB(&db);
+    db.load_investment();
     if (si.exec() != Sell_Investition::Accepted)
         return;
     db.save_users();
