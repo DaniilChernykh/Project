@@ -14,12 +14,42 @@ void Edit_User::setUser(User* user_)
     user = user_;
 }
 
+void Edit_User::setLineLogin(QString login_)
+{
+    ui->loginEdit->setText(login_);
+}
+
+void Edit_User::setLinePassword(QString pass_)
+{
+    ui->passEdit->setText(pass_);
+}
+
+void Edit_User::setLinePassword2(QString pass_)
+{
+    ui->try_passEdit->setText(pass_);
+}
+
+void Edit_User::setLineName(QString name_)
+{
+    ui->nameEdit->setText(name_);
+}
+
+void Edit_User::setLineAdress(QString adress_)
+{
+    ui->adressEdit->setText(adress_);
+}
+
+void Edit_User::setLinePhone(QString phone_)
+{
+    ui->phoneEdit->setText(phone_);
+}
+
 void Edit_User::setCurrentValues()
 {
-    ui->loginEdit->setText(user->getLogin());
-    ui->nameEdit->setText(user->getName());
-    ui->adressEdit->setText(user->getAdress());
-    ui->phoneEdit->setText(user->getPhone());
+    setLineLogin(user->getLogin());
+    setLineName(user->getName());
+    setLineAdress(user->getAdress());
+    setLinePhone(user->getPhone());
 }
 
 void Edit_User::accept()

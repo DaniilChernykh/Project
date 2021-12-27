@@ -14,12 +14,32 @@ void Edit_Securities::setSecurity(Security* security_)
     security = security_;
 }
 
+void Edit_Securities::setLineName(QString name_)
+{
+    ui->nameEdit->setText(name_);
+}
+
+void Edit_Securities::setLineOCostEdit(QString oCost_)
+{
+    ui->oCostEdit->setText(QString("%1").arg(oCost_));
+}
+
+void Edit_Securities::setLineNCostEdit(QString nCost_)
+{
+    ui->nCostEdit->setText(QString("%1").arg(nCost_));
+}
+
+void Edit_Securities::setLineAvailableBox(bool avail_)
+{
+    ui->availableBox->setChecked(avail_);
+}
+
 void Edit_Securities::setCurrentValues()
 {
-    ui->nameEdit->setText(security->getName());
-    ui->oCostEdit->setText(QString("%1").arg(security->getCostOld()));
-    ui->nCostEdit->setText(QString("%1").arg(security->getCostNew()));
-    ui->availableBox->setChecked(security->getAvailable());
+    setLineName(security->getName());
+    setLineOCostEdit(QString("%1").arg(security->getCostOld()));
+    setLineNCostEdit(QString("%1").arg(security->getCostNew()));
+    setLineAvailableBox(security->getAvailable());
 }
 
 void Edit_Securities::accept()
@@ -39,6 +59,10 @@ void Edit_Securities::accept()
     if (!ok)
     {
         QMessageBox::warning(this, "InvestitionsProgram", "Поле с новой ценой введена неправильно.");
+        return;
+    }
+    else if (n_cost <= 0) {
+        QMessageBox::warning(this, "InvestitionsProgram", "Новая цена отрицательная.");
         return;
     }
 

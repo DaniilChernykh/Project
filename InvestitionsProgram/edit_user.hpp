@@ -16,6 +16,12 @@ public:
     explicit Edit_User(QWidget *parent = nullptr);
     void setUser(User*);
     void setCurrentValues();
+    void setLineLogin(QString);
+    void setLinePassword(QString);
+    void setLinePassword2(QString);
+    void setLineName(QString);
+    void setLineAdress(QString);
+    void setLinePhone(QString);
     ~Edit_User();
 
 public slots:

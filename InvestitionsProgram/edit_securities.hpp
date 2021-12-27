@@ -18,6 +18,11 @@ public:
     void setCurrentValues();
     ~Edit_Securities();
 
+    void setLineName(QString);
+    void setLineOCostEdit(QString);
+    void setLineNCostEdit(QString);
+    void setLineAvailableBox(bool);
+
 public slots:
     void accept();
 
