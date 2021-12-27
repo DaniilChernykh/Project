@@ -1,3 +1,5 @@
+#include <QFile>
+#include <QMessageBox>
 #include "adminmainwindow.hpp"
 #include "list_users.hpp"
 #include "ui_adminmainwindow.h"
@@ -29,9 +31,21 @@ void AdminMainWindow::historyChangedSecurities()
     Ui::List_Investition list_invest;
     list_invest.setupUi(li);
 
-    //list_invest.listWidget->addItems();
+    QFile outf("investments.log");
+    outf.open(QIODevice::ReadOnly);
+    QTextStream out(&outf);
 
+    if (out.atEnd()) {
+        QMessageBox::information(this, "InvestitionsProgram", "Файл пустой.");
+        return;
+    }
 
+    while(!out.atEnd()) {
+        QString output = out.readLine();
+        list_invest.listWidget->addItem(output);
+    }
+
+    li->exec();
 }
 
 AdminMainWindow::~AdminMainWindow()

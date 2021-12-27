@@ -332,7 +332,20 @@ void Database::refreshDataSecurity(Security& sec_)
             break;
         }
     }
+    addOperationWithSecurity(sec_);
     save_security();
+}
+
+void Database::addOperationWithSecurity(Security& sec_)
+{
+    QFile outf("investments.log");
+    outf.open(QIODevice::Append);
+    QTextStream out(&outf);
+    QString output = "";
+    output += QString("Сотрудник \"%1\" ").arg(cur_user.getName());
+    output += QString ("изменил цену акции %1 с ID %2").arg(sec_.getName()).arg(sec_.getID());
+    output += QString("с %1 на %2\n").arg(sec_.getCostOld()).arg(sec_.getCostNew());
+    out << output;
 }
 
 void Database::refreshDataInvestments(Investment & inv_)
@@ -346,6 +359,7 @@ void Database::refreshDataInvestments(Investment & inv_)
             break;
         }
     }
+    addOperationWithInvestition(inv_);
     save_investment();
 }
 

@@ -41,6 +41,7 @@ private:
     void load_security();
 
     void addOperationWithInvestition(Investment&);
+    void addOperationWithSecurity(Security&);
 
     std::vector <User> users;
     std::vector <Security> securites;
